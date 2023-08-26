@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm3tbu3dud0cu"]
+[gd_scene load_steps=8 format=3 uid="uid://bm3tbu3dud0cu"]
 
 [ext_resource type="FontFile" uid="uid://bdg2ylgj5pgj" path="res://assets/fonts/Kaph-Regular.otf" id="1_neli7"]
 [ext_resource type="FontFile" uid="uid://dmam86cqq8oar" path="res://assets/fonts/kenvector_future.ttf" id="2_45y0n"]
+[ext_resource type="FontFile" uid="uid://o51dxqpt8rvr" path="res://assets/fonts/kenvector_future_thin.ttf" id="2_kwvtr"]
 [ext_resource type="PackedScene" uid="uid://cfa0dyruph2fb" path="res://scenes/board/board.tscn" id="2_tyi4q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_35nes"]
@@ -14,6 +15,10 @@ shadow_size = 5
 shadow_color = Color(0.396078, 0.384314, 0.360784, 0.294118)
 shadow_offset = Vector2(0, 3)
 
+[sub_resource type="LabelSettings" id="LabelSettings_vx20b"]
+font = ExtResource("2_kwvtr")
+font_color = Color(0.172549, 0.172549, 0.329412, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_64bf4"]
 font = ExtResource("2_45y0n")
 font_size = 18
@@ -21,16 +26,16 @@ font_color = Color(0.968627, 0.945098, 0.890196, 1)
 
 [node name="Main" type="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackgroundRect" type="ColorRect" parent="."]
 z_index = -50
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.517647, 0.505882, 0.478431, 1)
+color = Color(0.470588, 0.458824, 0.431373, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MC" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,42 +46,74 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MC"]
 layout_mode = 2
 color = Color(0.666667, 0.65098, 0.615686, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MC" type="MarginContainer" parent="MC"]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VB" type="VBoxContainer" parent="MC/MC"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="MC/MC/VB"]
 layout_mode = 2
 text = "Merge to Win"
 label_settings = SubResource("LabelSettings_35nes")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBScore" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="InfoPanel" type="Control" parent="MC/MC/VB"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBScore"]
+[node name="ColorRect" type="ColorRect" parent="MC/MC/VB/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.890196, 0.611765, 1)
+
+[node name="MC" type="MarginContainer" parent="MC/MC/VB/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="InfoLabel" type="Label" parent="MC/MC/VB/InfoPanel/MC"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "INFORMATION"
+label_settings = SubResource("LabelSettings_vx20b")
+
+[node name="HBScore" type="HBoxContainer" parent="MC/MC/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/MC/VB/HBScore"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Score:"
 label_settings = SubResource("LabelSettings_64bf4")
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBScore"]
+[node name="ScoreLabel" type="Label" parent="MC/MC/VB/HBScore"]
 layout_mode = 2
 text = "0000"
 label_settings = SubResource("LabelSettings_64bf4")
 vertical_alignment = 1
 
-[node name="Board" parent="MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_tyi4q")]
+[node name="Board" parent="MC/MC/VB" instance=ExtResource("2_tyi4q")]
 layout_mode = 2

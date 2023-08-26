@@ -13,6 +13,11 @@ func _ready():
 	grid.columns = cols
 	
 	create_board_squares()
+	
+	print("get children ", grid.get_child_count())
+	
+	for c in grid.get_children():
+		c.
 
 
 func create_board_squares() -> void:
