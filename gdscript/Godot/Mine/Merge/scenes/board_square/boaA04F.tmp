@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bylahwagvunjo"]
+[gd_scene load_steps=4 format=3 uid="uid://bylahwagvunjo"]
 
 [ext_resource type="Script" path="res://scenes/board_square/ItemRect.gd" id="2_f48lp"]
-[ext_resource type="LabelSettings" uid="uid://cms7g1lnc3or5" path="res://assets/32_White_KAR.tres" id="2_q2ug7"]
+[ext_resource type="FontFile" uid="uid://bdg2ylgj5pgj" path="res://assets/fonts/Kaph-Regular.otf" id="2_vyjpw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dkja5"]
+font = ExtResource("2_vyjpw")
+font_size = 32
 
 [node name="BoardSquare" type="Control"]
 clip_contents = true
@@ -45,6 +49,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "A"
-label_settings = ExtResource("2_q2ug7")
+label_settings = SubResource("LabelSettings_dkja5")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,10 +1,11 @@
 extends Control
 
-class_name BoardSquare
+@onready var item_label = $ItemRect/ItemLabel
 
-@onready var item_image = $ItemImage
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	#item_label.text = "H"
 	
+func _get_drag_data(at_position: Vector2):
+	print("get_drag_data")
+	return self
