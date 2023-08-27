@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8kt4hrcioqbj"]
+
+[ext_resource type="Texture2D" uid="uid://mq8lfp15cai8" path="res://assets/img/items/coin/coin-0.png" id="1_02wyq"]
+[ext_resource type="Script" path="res://scenes/board_item/board_item.gd" id="1_p331t"]
+
+[node name="BoardItem" type="Control"]
+custom_minimum_size = Vector2(35, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -410.0
+offset_bottom = -760.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p331t")
+
+[node name="ItemImg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_02wyq")
+expand_mode = 3
+stretch_mode = 4

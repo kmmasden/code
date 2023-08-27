@@ -1,119 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm3tbu3dud0cu"]
+[gd_scene load_steps=7 format=3 uid="uid://bm3tbu3dud0cu"]
 
+[ext_resource type="Texture2D" uid="uid://fw2j6hyx4k8d" path="res://assets/img/ui/bg.png" id="1_4l2a1"]
 [ext_resource type="FontFile" uid="uid://bdg2ylgj5pgj" path="res://assets/fonts/Kaph-Regular.otf" id="1_neli7"]
-[ext_resource type="FontFile" uid="uid://dmam86cqq8oar" path="res://assets/fonts/kenvector_future.ttf" id="2_45y0n"]
-[ext_resource type="FontFile" uid="uid://o51dxqpt8rvr" path="res://assets/fonts/kenvector_future_thin.ttf" id="2_kwvtr"]
 [ext_resource type="PackedScene" uid="uid://cfa0dyruph2fb" path="res://scenes/board/board.tscn" id="2_tyi4q"]
+[ext_resource type="Texture2D" uid="uid://burymoe1lycdo" path="res://assets/img/ui/banner-fade.png" id="6_tbjdi"]
+[ext_resource type="Texture2D" uid="uid://cu7m3ibskyju1" path="res://assets/img/ui/frame-2.png" id="8_h6dr4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_35nes"]
+[sub_resource type="LabelSettings" id="LabelSettings_qebf0"]
 font = ExtResource("1_neli7")
-font_size = 42
-font_color = Color(0.968627, 0.945098, 0.890196, 1)
-outline_size = 2
-outline_color = Color(0.664063, 0.648438, 0.613281, 1)
-shadow_size = 5
-shadow_color = Color(0.396078, 0.384314, 0.360784, 0.294118)
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vx20b"]
-font = ExtResource("2_kwvtr")
-font_color = Color(0.172549, 0.172549, 0.329412, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_64bf4"]
-font = ExtResource("2_45y0n")
-font_size = 18
-font_color = Color(0.968627, 0.945098, 0.890196, 1)
+font_size = 28
+font_color = Color(0.870588, 0.811765, 0.764706, 1)
 
 [node name="Main" type="CanvasLayer"]
 
-[node name="BackgroundRect" type="ColorRect" parent="."]
+[node name="BgImg" type="TextureRect" parent="."]
 z_index = -50
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -10.0
+offset_right = 83.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.470588, 0.458824, 0.431373, 1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_4l2a1")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="MC" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -192.5
+offset_right = 192.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 125
 
-[node name="ColorRect" type="ColorRect" parent="MC"]
+[node name="VB" type="VBoxContainer" parent="MC"]
 layout_mode = 2
-color = Color(0.666667, 0.65098, 0.615686, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = -75
 
-[node name="MC" type="MarginContainer" parent="MC"]
+[node name="BannerImg" type="TextureRect" parent="MC/VB"]
 layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 15
+size_flags_vertical = 0
+texture = ExtResource("6_tbjdi")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="VB" type="VBoxContainer" parent="MC/MC"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="TitleLabel" type="Label" parent="MC/MC/VB"]
-layout_mode = 2
-text = "Merge to Win"
-label_settings = SubResource("LabelSettings_35nes")
+[node name="TitleLabel" type="Label" parent="MC/VB/BannerImg"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 157.0
+grow_horizontal = 2
+text = "MERGE GAME"
+label_settings = SubResource("LabelSettings_qebf0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InfoPanel" type="Control" parent="MC/MC/VB"]
-custom_minimum_size = Vector2(0, 120)
+[node name="MergeBoard" parent="MC/VB" instance=ExtResource("2_tyi4q")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Spacer" type="Control" parent="MC/VB"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MC/MC/VB/InfoPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.890196, 0.611765, 1)
-
-[node name="MC" type="MarginContainer" parent="MC/MC/VB/InfoPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="InfoLabel" type="Label" parent="MC/MC/VB/InfoPanel/MC"]
+[node name="BotFrameImg" type="TextureRect" parent="MC/VB"]
 layout_mode = 2
-size_flags_vertical = 1
-text = "INFORMATION"
-label_settings = SubResource("LabelSettings_vx20b")
-
-[node name="HBScore" type="HBoxContainer" parent="MC/MC/VB"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MC/MC/VB/HBScore"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Score:"
-label_settings = SubResource("LabelSettings_64bf4")
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="MC/MC/VB/HBScore"]
-layout_mode = 2
-text = "0000"
-label_settings = SubResource("LabelSettings_64bf4")
-vertical_alignment = 1
-
-[node name="Board" parent="MC/MC/VB" instance=ExtResource("2_tyi4q")]
-layout_mode = 2
+texture = ExtResource("8_h6dr4")
+expand_mode = 4
+stretch_mode = 4
