@@ -8,4 +8,4 @@ var _coin_dict = {}
 var _tree_dict = {}
 
 func _ready():
-	
+	pass
