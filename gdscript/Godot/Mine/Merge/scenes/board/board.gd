@@ -1,22 +1,23 @@
 extends Control
 
-var board_square: PackedScene = preload("res://scenes/board_square/board_square.tscn")
-@export var cols: int = 6
-@export var rows: int = 6
-@onready var grid = $MC/Grid
+@export var board_rows: int = 6
+@export var board_column: int = 6
 
-var _board_squares = {}
+@onready var merge_grid = $MC/MergeGrid
+const BOARD_ITEM_SCENE: PackedScene = preload("res://scenes/board_item/board_item.tscn")
 
-const GRID_CONTAINER_COLUMNS_PROPERTY = "columns"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	grid.columns = cols
+	SignalManager.generate_new_board.connect(generate_new_board)
+
+
+func generate_new_board() -> void:
+	print("generate new board signal recieved")
+	_generate_board()
+
+# fill board with blank starter items
+func _generate_board() -> void:
+	for n in (board_rows * board_column): 
+		var new_item = BOARD_ITEM_SCENE.instantiate()
+		merge_grid.add_child(new_item)
 	
-	create_board_squares()
-
-
-func create_board_squares() -> void:
-	for n in (cols * rows): 
-		var new_square = board_square.instantiate()
-		grid.add_child(new_square)
-
