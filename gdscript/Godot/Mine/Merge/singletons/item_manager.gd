@@ -39,14 +39,11 @@ const TREES = {
 func _get_starter_img_from_item_type(type: String) -> CompressedTexture2D:
 	var temp_img: CompressedTexture2D = ITEM_DEFAULT_TEXTURE
 	match type:
-		"COIN":
-			print("type coin")
+		COIN_TYPE:
 			temp_img = COINS[LEVEL_KEYS.ONE]
-		"ROCK":
-			print("type rock")
+		ROCK_TYPE:
 			temp_img = ROCKS[LEVEL_KEYS.ONE]
-		"TREE":
-			print(TREES[LEVEL_KEYS.ONE])
+		TREE_TYPE:
 			temp_img = TREES[LEVEL_KEYS.ONE]
 	return temp_img
 		

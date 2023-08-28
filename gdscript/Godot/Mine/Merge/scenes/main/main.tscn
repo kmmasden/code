@@ -78,12 +78,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Spacer" type="Control" parent="MC/VB"]
-visible = false
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 
 [node name="BotFrameImg" type="TextureRect" parent="MC/VB"]
-visible = false
 layout_mode = 2
 texture = ExtResource("8_h6dr4")
 expand_mode = 4

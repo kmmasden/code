@@ -56,12 +56,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 58
-theme_override_constants/margin_top = 67
+theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 53
 theme_override_constants/margin_bottom = 42
 
 [node name="MergeGrid" type="GridContainer" parent="MC"]
 layout_mode = 2
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 8
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 7
 columns = 6
