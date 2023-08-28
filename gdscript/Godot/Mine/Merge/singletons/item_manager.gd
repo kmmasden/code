@@ -1,11 +1,55 @@
 extends Node
 
+#HARDCODING FOR NOW WITH PLACEHOLDER IMAGES TO GET LOGIC WORKING
 
-enum ITEM_TYPE { ROCK, COIN, TREE }
+const BOARD_ITEM_SCENE: PackedScene = preload("res://scenes/board_item/board_item.tscn")
+const ITEM_DEFAULT_TEXTURE = preload("res://assets/img/icons/x.png")
+const COIN_TYPE = "COIN"
+const ROCK_TYPE = "ROCK"
+const TREE_TYPE = "TREE"
 
-var _rock_dict = {}
-var _coin_dict = {}
-var _tree_dict = {}
+enum ITEM_KEYS {COIN, ROCK, TREE}
 
-func _ready():
-	pass
+enum LEVEL_KEYS {ONE, TWO, THREE, FOUR, FIVE}
+
+const COINS = {
+	LEVEL_KEYS.ONE : preload("res://assets/img/items/coin/coin-0.png"),
+	LEVEL_KEYS.TWO : preload("res://assets/img/items/coin/coin-1.png"),
+	LEVEL_KEYS.THREE : preload("res://assets/img/items/coin/coin-2.png"),
+	LEVEL_KEYS.FOUR : preload("res://assets/img/items/coin/coin-3.png"),
+	LEVEL_KEYS.FIVE : preload("res://assets/img/items/coin/coin-4.png")
+}
+
+const ROCKS = {
+	LEVEL_KEYS.ONE : preload("res://assets/img/items/rock/rock-0.png"),
+	LEVEL_KEYS.TWO : preload("res://assets/img/items/rock/rock-1.png"),
+	LEVEL_KEYS.THREE : preload("res://assets/img/items/rock/rock-2.png"),
+	LEVEL_KEYS.FOUR : preload("res://assets/img/items/rock/rock-3.png"),
+	LEVEL_KEYS.FIVE : preload("res://assets/img/items/rock/rock-4.png")
+}
+
+const TREES = {
+	LEVEL_KEYS.ONE : preload("res://assets/img/items/tree/tree-0.png"),
+	LEVEL_KEYS.TWO : preload("res://assets/img/items/tree/tree-1.png"),
+	LEVEL_KEYS.THREE : preload("res://assets/img/items/tree/tree-2.png"),
+	LEVEL_KEYS.FOUR : preload("res://assets/img/items/tree/tree-3.png")
+}
+	
+
+func _get_starter_img_from_item_type(type: String) -> CompressedTexture2D:
+	var temp_img: CompressedTexture2D = ITEM_DEFAULT_TEXTURE
+	match type:
+		"COIN":
+			print("type coin")
+			temp_img = COINS[LEVEL_KEYS.ONE]
+		"ROCK":
+			print("type rock")
+			temp_img = ROCKS[LEVEL_KEYS.ONE]
+		"TREE":
+			print(TREES[LEVEL_KEYS.ONE])
+			temp_img = TREES[LEVEL_KEYS.ONE]
+	return temp_img
+		
+	
+	
+	

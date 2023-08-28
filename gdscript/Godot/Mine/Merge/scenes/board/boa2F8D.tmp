@@ -23,8 +23,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -11.0
-offset_right = -11.0
+offset_left = -13.0
+offset_right = 7.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
@@ -34,14 +35,13 @@ stretch_mode = 5
 
 [node name="BoardBackgroundImg" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = 13.0
-offset_right = 211.875
-offset_bottom = 13.0
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 20.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_fdhho")
@@ -55,10 +55,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 58
-theme_override_constants/margin_top = 67
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 53
-theme_override_constants/margin_bottom = 42
+theme_override_constants/margin_bottom = 30
 
 [node name="MergeGrid" type="GridContainer" parent="MC"]
 layout_mode = 2
