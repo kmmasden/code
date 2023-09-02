@@ -14,4 +14,65 @@
       </div>
     </div>
   </div>
+
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Date</label>
+      <input type="date" class="form-control" (input)="onDateChange($event.target.value)" />
+    </div>
+
+    <div class="col">
+      <label><b>Payment Date</b></label>
+      <div>
+        {{ paymentDate | date: 'MMMM d, y' }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <label>Payment Amount</label>
+    <div class="input-group  col">
+      <span class="input-group-text">$</span>
+        <input class="form-control" (input)="onAmountChange($event.target.value)" />
+      <span class="input-group-text">.00</span>
+    </div>
+
+    <div class="col">
+      <label><b>Amount</b></label>
+      <div>
+        {{ amount | currency:'USD' }}
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <div class="row">
+    <div class="form-group col">
+      <label>Height</label>
+      <input class="form-control" (input)="onHeightChange($event.target.value)" />
+    </div>
+
+    <div class="col">
+      <label><b>(using DecimalPipe)</b></label>
+      <div>
+        {{ height | number: '1.0-0' }} 
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Miles</label>
+      <input class="form-control" (input)="onMilesChange($event.target.value)" />
+    </div>
+
+    <div class="col">
+      <div> <label><b>Kilometers:</b></label>  {{ miles | distance: 'km' }}</div>
+      <div><label><b>Meters:</b></label>     {{ miles | distance: 'm' }}</div>
+      <div><label><b>Centimeters:</b></label>{{ miles | distance: 'cm' | number: '1.0-2' }}</div>
+    </div>
+  </div>
 </div>
+
