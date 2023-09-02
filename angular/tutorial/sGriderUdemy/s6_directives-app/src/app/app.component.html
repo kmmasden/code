@@ -1,0 +1,43 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item"
+      [appClass]="{ disabled: currentPage === 0 }"
+    >
+      <a class="page-link" (click)="currentPage = currentPage-1">Prev</a>
+    </li>
+    <ng-container *appTimes="images.length; let i = index">
+      <li class="page-item" 
+      [appClass]="{ active: i === currentPage}"
+      *ngIf="checkWindowIndex(i)"
+      >
+        <a (click)="currentPage = i" class="page-link">{{ i + 1 }}</a>
+      </li>
+    </ng-container>
+    <li class="page-item"
+    [appClass]="{ disabled: currentPage === images.length - 1 }"
+    >
+      <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+    </li>
+  </ul>
+</nav>
+
+<div [ngSwitch]="currentPage">
+  <div *ngSwitchCase="0">
+    Current page index is 0
+  </div>
+  <div *ngSwitchCase="3">
+    Current page index is 3
+  </div>
+  <div *ngSwitchCase="4">
+    Current page index is 4
+  </div>
+  <div *ngSwitchDefault>
+    Current page unkown
+  </div>
+</div>
+
+<div>
+  <h4> {{ images[currentPage].title }} </h4>
+  <img [src]="images[currentPage].url" />
+</div>
+
