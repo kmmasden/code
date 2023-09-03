@@ -11,8 +11,6 @@ import { ModsHomeComponent } from './mods-home/mods-home.component';
   imports: [
     CommonModule,
     ModsRoutingModule
-  ],
-  exports: [
   ]
 })
 export class ModsModule { }
