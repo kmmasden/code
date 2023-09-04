@@ -25,9 +25,13 @@
 		- Created custom *structural directive* to accept input n, and duplicate whatever was inside the element n times. Used to replace ngFor call in the gallery app to display the images. 
 - Style framework: [Bootstrap](https://getbootstrap.com/)
 
-### Section 7: Components Showcase App
+### Section 7 - Section 11: Components Showcase App
 - Topic: **Modules**
 - Style framework: [Semantic-Ui](https://semantic-ui.com/)
 	- Specifically used as semantic-ui contains semantic css and semantic js
 	- So we will have access to the styling, but implement the functionality of different modules ourselves via angular based on the documentation.
 - Begin to use Angular's routing to navigate 
+
+### Section 13 : Wikipedia Searching Tool App 
+- Topic: **Handling Data and HTTP Requests**
+- Will fetch data from the wikipedia API and beginning to touch upon angular app security 
