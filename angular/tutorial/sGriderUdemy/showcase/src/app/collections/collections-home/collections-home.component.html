@@ -1,2 +1,12 @@
 <app-divder>Table</app-divder>
 <app-table classNames="striped celled" [data]="data" [headers]="headers"></app-table>
+
+
+<app-divder>Tabs with Component Navigation</app-divder>
+<app-tabs>
+
+    <a class="item" [routerLinkActiveOptions]="{ exact : true}" routerLink="./" routerLinkActive="active">Biography</a>
+    <a class="item" routerLink="./companies" routerLinkActive="active">Companies</a>
+    <a class="item" routerLink="./partners" routerLinkActive="active">Partners</a>
+
+</app-tabs>
