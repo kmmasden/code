@@ -32,6 +32,15 @@
 	- So we will have access to the styling, but implement the functionality of different modules ourselves via angular based on the documentation.
 - Begin to use Angular's routing to navigate 
 
-### Section 13 : Wikipedia Searching Tool App 
+### Section 8: Typescript Overview
+- No associated project, an overview of typescript
+
+### Section 13 - Section 14: : Wikipedia Searching Tool App 
 - Topic: **Handling Data and HTTP Requests**
+	- Making HTTP Requests, Creation of services, Dependency Injection, Security and avoid XSS attacks
 - Will fetch data from the wikipedia API and beginning to touch upon angular app security 
+- We used Wikipedia's API to build an app that accepts a keyword to search and then displays a list of the pages found with some metadata about the returned articles 
+
+### Section 15 - Section 16: RxJS 
+- Topic: **Intro to RxJS outside of angular context**
+- Updated Wikipedia app from previous sections to use RxJS and use operators on an observable returned by HTTP request. 
