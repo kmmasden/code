@@ -40,7 +40,12 @@
 	- Making HTTP Requests, Creation of services, Dependency Injection, Security and avoid XSS attacks
 - Will fetch data from the wikipedia API and beginning to touch upon angular app security 
 - We used Wikipedia's API to build an app that accepts a keyword to search and then displays a list of the pages found with some metadata about the returned articles 
+- Style framework: [Bulma](https://bulma.io/)
 
 ### Section 15 - Section 16: RxJS 
 - Topic: **Intro to RxJS outside of angular context**
 - Updated Wikipedia app from previous sections to use RxJS and use operators on an observable returned by HTTP request. 
+
+### Section 17: Photo Fetching App (handling all requests with RsJX)
+- Topic: **Using RsJX and Angular to Handle HTTP Requests**
+- Create a very simple app consisting of a component and a service. The component will contain a button 'get image' and when pushed, will make an HTTP request to Unsplash's API to get a random image that will be displayed to the user.
