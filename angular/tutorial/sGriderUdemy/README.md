@@ -49,3 +49,10 @@
 ### Section 17: Photo Fetching App (handling all requests with RsJX)
 - Topic: **Using RsJX and Angular to Handle HTTP Requests**
 - Create a very simple app consisting of a component and a service. The component will contain a button 'get image' and when pushed, will make an HTTP request to Unsplash's API to get a random image that will be displayed to the user.
+
+
+### Section 18: Credit Card Payment App 
+- Topic: **Reactive Forms**
+	- Creation and handling of forms - validation, messaging
+	- Reactive (ReactiveFormsModule) and Template (FormsModule) Forms
+- Style framework: [Bulma](https://bulma.io/)
